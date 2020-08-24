@@ -4,8 +4,10 @@
 
 body {
   margin: 0;
-  background-color: #8f57fd;
+  background-color: #0f3052;
   font-family: "Mulish", sans-serif;
+  position: relative;
+  min-height: 100vh; /*Estos dos ultimos atributos son para mantener el footer en el bottom*/
 }
 
 /*------------------------------Header*/
@@ -68,6 +70,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .main__title {
@@ -102,9 +105,20 @@ body {
 /*------------------------------Carousel*/
 .carousel {
   width: 100%;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding: 30px;
   position: relative;
+}
+
+.carousel::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.carousel::-webkit-scrollbar-thumb {
+  background: #e6af2e;
+  border-radius: 12px;
 }
 
 .carousel__container {
@@ -173,4 +187,34 @@ body {
 .carusel-item__details:hover {
   opacity: 1;
   color: white;
+}
+
+/*------------------------------Footer*/
+.footer {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: #0f3052;
+  position: absolute;
+  bottom: 0;
+}
+
+.footer a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  padding-left: 30px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
